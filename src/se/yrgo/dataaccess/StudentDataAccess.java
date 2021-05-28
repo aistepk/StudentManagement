@@ -14,6 +14,12 @@ public interface StudentDataAccess {
     public List<Student> findAll();
 
     public List<Student> findByLastName(String lastName);
-
     
+    public Student findById(int id);
+    
+    public void updateStudent(int id, String schoolClass, int subjects);
+    
+	public void deleteStudent(int id) throws StudentNotFoundException;
+	
+   
 }

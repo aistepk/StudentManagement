@@ -12,7 +12,6 @@ import javax.persistence.Query;
 import se.yrgo.domain.Student;
 
 @Stateless
-@Default
 public class StudentDataAccessProductionVersion implements StudentDataAccess {
 
 	@PersistenceContext
@@ -36,5 +35,26 @@ public class StudentDataAccessProductionVersion implements StudentDataAccess {
 	    q.setParameter("lastName", lastName);
 	    return q.getResultList();
 	}
+	
+	@Override
+	public Student findById(int id) {
+	    Query q = em.createQuery("select student from Student student where student.id = :id");
+	    q.setParameter("id", id);
+	    return (Student)q.getSingleResult() ;
+	}
+	
+	@Override
+	public void updateStudent(int id, String schoolClass, int subjects) {
+	    Student s = findById(id);
+	    s.setSchoolClass(schoolClass);
+	    s.setSubjects(subjects);
+	}
+
+	@Override
+	public void deleteStudent(int id) throws StudentNotFoundException {
+		Student s = findById(id);
+	    em.remove(s);
+	}
+
 
 }

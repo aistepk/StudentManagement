@@ -29,6 +29,46 @@ public class Student implements java.io.Serializable {
 		
 	}
 
+	public void setId(int id) {
+		this.id = id;
+	}
+
+	public void setFirstName(String firstName) {
+		this.firstName = firstName;
+	}
+
+	public void setLastName(String lastName) {
+		this.lastName = lastName;
+	}
+
+	public void setSchoolClass(String schoolClass) {
+		this.schoolClass = schoolClass;
+	}
+
+	public void setSubjects(int subjects) {
+		this.subjects = subjects;
+	}
+
+	public int getId() {
+		return id;
+	}
+
+	public String getFirstName() {
+		return firstName;
+	}
+
+	public String getLastName() {
+		return lastName;
+	}
+
+	public String getSchoolClass() {
+		return schoolClass;
+	}
+
+	public int getSubjects() {
+		return subjects;
+	}
+
 	public String toString() {
 	    return "Student: " + this.firstName + " " + this.lastName + " " + this.schoolClass + " " + this.subjects;
 	}
